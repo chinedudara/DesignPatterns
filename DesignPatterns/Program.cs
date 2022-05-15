@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using DesignPatterns.CreationalDesignPatterns.AbstractFactory;
+using DesignPatterns.CreationalDesignPatterns.Builder;
 using DesignPatterns.CreationalDesignPatterns.FactoryMethod;
 using DoorFactory = DesignPatterns.CreationalDesignPatterns.SimpleFactory.DoorFactory;
 
@@ -26,7 +27,6 @@ Console.WriteLine(Environment.NewLine);
     devManager.TakeInterview();
     Console.WriteLine(Environment.NewLine);
 }
-
 #endregion
 
 #region Abstract Factory
@@ -45,6 +45,25 @@ Console.WriteLine(Environment.NewLine);
     fitter.GetDescription();
     Console.WriteLine(Environment.NewLine);
 }
-
 #endregion
 
+#region Builder Method
+{
+    Console.WriteLine(Environment.NewLine);
+    var burger = new BurgerBuilder(10)
+        .AddCheese()
+        .AddLettuce()
+        .AddPepperonni()
+        .AddTomato()
+        .Build();
+
+    string burgerDetails = @$"Burger size: {burger.size}, 
+Has Lettuce: {burger.lettuce}, 
+Has Cheese: {burger.cheese}, 
+Has Pepperonni: {burger.pepperonni}
+Has tomato: {burger.tomato}";
+    Console.WriteLine(burgerDetails);
+    Console.WriteLine(Environment.NewLine);
+}
+
+#endregion

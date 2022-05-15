@@ -2,6 +2,7 @@
 using DesignPatterns.CreationalDesignPatterns.AbstractFactory;
 using DesignPatterns.CreationalDesignPatterns.Builder;
 using DesignPatterns.CreationalDesignPatterns.FactoryMethod;
+using DesignPatterns.CreationalDesignPatterns.Prototype;
 using DoorFactory = DesignPatterns.CreationalDesignPatterns.SimpleFactory.DoorFactory;
 
 Console.WriteLine("Creational Design Patterns");
@@ -49,7 +50,7 @@ Console.WriteLine(Environment.NewLine);
 
 #region Builder Method
 {
-    Console.WriteLine(Environment.NewLine);
+    Console.WriteLine("Builder Method");
     var burger = new BurgerBuilder(10)
         .AddCheese()
         .AddLettuce()
@@ -65,5 +66,19 @@ Has tomato: {burger.tomato}";
     Console.WriteLine(burgerDetails);
     Console.WriteLine(Environment.NewLine);
 }
+#endregion
 
+#region Prototype Method
+{
+    Console.WriteLine("Prototype Method");
+    var original = new Sheep("Jolly");
+    Console.WriteLine(original.Name);
+    Console.WriteLine(original.Category);
+
+    var cloned = original.Clone() as Sheep;
+    cloned.Name = "Dolly";
+    Console.WriteLine(cloned.Name);
+    Console.WriteLine(cloned.Category);
+    Console.WriteLine(Environment.NewLine);
+}
 #endregion
